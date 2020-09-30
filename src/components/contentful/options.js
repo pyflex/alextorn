@@ -1,7 +1,7 @@
 import { BLOCKS } from '@contentful/rich-text-types'
 import React from 'react'
 
-import BlockQuote from './Blockquote'
+import BlockQuote from './blockquote'
 
 const richTextOptions = {
   renderNode: {

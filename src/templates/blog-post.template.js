@@ -2,6 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -59,7 +60,6 @@ export const pageData = graphql`
         authorImage {
           file {
             fileName
-            url
           }
           fluid(maxWidth: 300, background: "rgb:000000") {
             ...GatsbyContentfulFluid_tracedSVG
@@ -69,7 +69,6 @@ export const pageData = graphql`
       featureImage {
         file {
           fileName
-          url
         }
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG
