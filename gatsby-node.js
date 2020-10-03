@@ -10,9 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allContentfulBlogPostTest(
-              filter: { node_locale: { eq: "en-US" } }
-            ) {
+            allContentfulBlogPost(filter: { node_locale: { eq: "en-US" } }) {
               edges {
                 node {
                   title
@@ -28,7 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        const posts = result.data.allContentfulBlogPostTest.edges
+        const posts = result.data.allContentfulBlogPost.edges
         posts.forEach((post, index) => {
           createPage({
             path: `/blog/${post.node.slug}/`,

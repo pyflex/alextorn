@@ -10,7 +10,7 @@ import richTextOptions from './../components/contentful/options'
 import Layout from '../components/main/layout'
 
 const BlogPostTemplate = (props) => {
-  const post = get(props, 'data.contentfulBlogPostTest')
+  const post = get(props, 'data.contentfulBlogPost')
   const siteTitle = get(props, 'data.site.siteMetaData.title')
 
   return (
@@ -46,7 +46,7 @@ export const pageData = graphql`
         title
       }
     }
-    contentfulBlogPostTest(slug: { eq: $slug }) {
+    contentfulBlogPost(slug: { eq: $slug }) {
       title
       updatedAt(formatString: "MMMM Do, YYYY")
       description {

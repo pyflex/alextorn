@@ -2,7 +2,6 @@ import React from 'react'
 import Img from 'gatsby-image'
 
 const ArticlePreview = ({ article }) => {
-  console.log(article)
   return (
     <div>
       <div>

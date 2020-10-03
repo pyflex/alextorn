@@ -7,6 +7,10 @@ const contentfulConfig = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 }
 
+const googleConfig = {
+  analyticsId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+}
+
 // if you want to use the preview API please define
 // CONTENTFUL_HOST in your environment config
 // the `host` property should map to `preview.contentful.com`
@@ -16,6 +20,8 @@ if (process.env.CONTENTFUL_HOST) {
 }
 
 const { spaceId, accessToken } = contentfulConfig
+
+const { analyticsId } = googleConfig
 
 if (!spaceId || !accessToken) {
   throw new Error(
@@ -29,6 +35,12 @@ module.exports = {
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: analyticsId,
+      },
+    },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',

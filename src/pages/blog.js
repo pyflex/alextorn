@@ -7,7 +7,7 @@ import Layout from '../components/main/layout'
 import ArticlePreview from './../components/pagecomponents/article-preview/article-preview.component'
 
 const BlogIndex = (props) => {
-  const posts = get(props, 'data.allContentfulBlogPostTest.edges')
+  const posts = get(props, 'data.allContentfulBlogPost.edges')
   // const siteTitle = get(props, 'data.site.siteMetaData.title')
   return (
     <Layout>
@@ -26,7 +26,7 @@ const BlogIndex = (props) => {
 
 export const allBlogPostsPreview = graphql`
   query BlogPostPreview {
-    allContentfulBlogPostTest(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulBlogPost(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {
           author {
