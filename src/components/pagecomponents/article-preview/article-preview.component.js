@@ -12,6 +12,7 @@ const ArticlePreview = ({ article }) => {
       <div>
         <p>Författare: {article.author.name}</p>
         <Img
+          style={{ maxWidth: '300px' }}
           alt={article.author.authorImage.file.fileName}
           fluid={article.author.authorImage.fluid}
         />

@@ -2,15 +2,17 @@ import React from 'react'
 import get from 'lodash/get'
 import { Img } from 'gatsby-image'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 
 import Layout from '../components/main/layout'
 import ArticlePreview from './../components/pagecomponents/article-preview/article-preview.component'
 
 const BlogIndex = (props) => {
   const posts = get(props, 'data.allContentfulBlogPost.edges')
-  // const siteTitle = get(props, 'data.site.siteMetaData.title')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
   return (
     <Layout>
+      <Helmet title={`Blogg | ${siteTitle}`} />
       <ul>
         {posts.map(({ node }) => {
           return (
@@ -26,6 +28,11 @@ const BlogIndex = (props) => {
 
 export const allBlogPostsPreview = graphql`
   query BlogPostPreview {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allContentfulBlogPost(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {
