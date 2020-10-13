@@ -38,5 +38,39 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
     )
+    const profilePage = path.resolve('./src/templates/profile.template.js')
+    resolve(
+      graphql(
+        `
+          {
+            allContentfulAuthor(filter: { node_locale: { eq: "en-US" } }) {
+              edges {
+                node {
+                  id
+                  slug
+                }
+              }
+            }
+          }
+        `
+      ).then((result) => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        const authors = result.data.allContentfulAuthor.edges
+        authors.forEach((author, index) => {
+          createPage({
+            path: `/profile/${author.node.slug}/`,
+            component: profilePage,
+            context: {
+              slug: author.node.slug,
+              id: author.node.id,
+            },
+          })
+        })
+      })
+    )
   })
 }

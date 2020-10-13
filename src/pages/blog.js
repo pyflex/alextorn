@@ -10,6 +10,9 @@ import ArticlePreview from './../components/pagecomponents/article-preview/artic
 const BlogIndex = (props) => {
   const posts = get(props, 'data.allContentfulBlogPost.edges')
   const siteTitle = get(props, 'data.site.siteMetadata.title')
+
+  // sitetitle not showing: undefined
+  // failed production (vipsjpeg): https://stackoverflow.com/questions/58974472/gatsby-contentful-netlify-how-to-render-tracedsvg-images-in-production
   return (
     <Layout>
       <Helmet title={`Blogg | ${siteTitle}`} />
@@ -43,7 +46,7 @@ export const allBlogPostsPreview = graphql`
                 fileName
               }
               fluid(maxWidth: 300, background: "rgb:000000") {
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid
               }
             }
           }

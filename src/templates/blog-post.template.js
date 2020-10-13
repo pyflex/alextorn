@@ -11,7 +11,7 @@ import Layout from '../components/main/layout'
 
 const BlogPostTemplate = (props) => {
   const post = get(props, 'data.contentfulBlogPost')
-  const siteTitle = get(props, 'data.site.siteMetaData.title')
+  const siteTitle = get(props, 'data.site.siteMetadata.title')
 
   return (
     <Layout location={props.location}>
@@ -62,7 +62,7 @@ export const pageData = graphql`
             fileName
           }
           fluid(maxWidth: 300, background: "rgb:000000") {
-            ...GatsbyContentfulFluid_tracedSVG
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -71,7 +71,7 @@ export const pageData = graphql`
           fileName
         }
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
     }

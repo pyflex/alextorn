@@ -3,14 +3,16 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
+import Layout from '../components/main/layout'
+
 const RootIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title')
   return (
-    <div>
+    <Layout>
       <Helmet title={`Hem | ${siteTitle}`} />
       <h1>This is Crispy Concept.</h1>
       <p>{siteTitle}</p>
-    </div>
+    </Layout>
   )
 }
 
