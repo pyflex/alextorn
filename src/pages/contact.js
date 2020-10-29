@@ -3,8 +3,8 @@ import get from 'lodash/get'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/main/layout'
-import ContactForm from './../components/pagecomponents/contact-form/contact-form.component'
+import Layout from '../components/components/layout'
+import ContactForm from './../components/components/contact-form/contact-form.component'
 
 const ContactIndex = (props) => {
   const post = get(props, 'data.contentfulContactInfo')

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/main/layout'
+import Layout from '../components/components/layout'
 
 const RootIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title')

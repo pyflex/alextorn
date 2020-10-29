@@ -4,18 +4,17 @@ import { Img } from 'gatsby-image'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Layout from '../components/main/layout'
-import ArticlePreview from './../components/pagecomponents/article-preview/article-preview.component'
+import Layout from '../components/components/layout'
+import ArticlePreview from './../components/components/article-preview/article-preview.component'
 
 const BlogIndex = (props) => {
   const posts = get(props, 'data.allContentfulBlogPost.edges')
   const siteTitle = get(props, 'data.site.siteMetadata.title')
 
-  // sitetitle not showing: undefined
-  // failed production (vipsjpeg): https://stackoverflow.com/questions/58974472/gatsby-contentful-netlify-how-to-render-tracedsvg-images-in-production
+  
   return (
     <Layout>
-      <Helmet title={`Blogg | ${siteTitle}`} />
+      <Helmet title={`Blog | ${siteTitle}`} />
       <ul>
         {posts.map(({ node }) => {
           return (

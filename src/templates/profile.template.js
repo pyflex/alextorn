@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/main/layout'
+import Layout from '../components/components/layout'
 
 const ProfilePage = (props) => {
   // idea of adding social networks

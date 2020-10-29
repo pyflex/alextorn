@@ -7,7 +7,7 @@ import { graphql } from 'gatsby'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import richTextOptions from './../components/contentful/options'
-import Layout from '../components/main/layout'
+import Layout from '../components/components/layout'
 
 const BlogPostTemplate = (props) => {
   const post = get(props, 'data.contentfulBlogPost')
