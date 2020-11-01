@@ -32,21 +32,9 @@ import ColorNavbar from 'components/Navbars/ColorNavbar.js';
 import DemoFooter from 'components/Footers/DemoFooter.js';
 
 class BlogPosts extends React.Component {
-  constructor(props) {
-    super(props);
-    let windowScrollTop;
-    if (typeof window !== 'undefined') {
-      const module = typeof window !== `undefined` ? require('module') : null;
-    }
-    if (window.innerWidth >= 768) {
-      windowScrollTop = window.pageYOffset / 3;
-    } else {
-      windowScrollTop = 0;
-    }
-    this.state = {
-      transform: 'translate3d(0,' + windowScrollTop + 'px,0)',
-    };
-  }
+  state = {
+    transform: null,
+  };
 
   componentDidMount() {
     document.documentElement.scrollTop = 0;

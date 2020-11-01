@@ -1,27 +1,24 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
-import { graphql } from 'gatsby'
+import React from 'react';
+import Img from 'gatsby-image';
+import get from 'lodash/get';
+import { Helmet } from 'react-helmet';
+import { graphql } from 'gatsby';
 
-import Layout from '../components/components/layout'
+import Layout from '../components/components/layout';
 
 const ProfilePage = (props) => {
   // idea of adding social networks
-  const author = get(props, 'data.contentfulAuthor')
-  const post = get(props, 'data.allContentfulBlogPost')
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-
-  console.log(post)
-  console.log(author)
+  const author = get(props, 'data.contentfulAuthor');
+  const post = get(props, 'data.allContentfulBlogPost');
+  const siteTitle = get(props, 'data.site.siteMetadata.title');
 
   return (
     <Layout>
       <Helmet title={`${author.name} | ${siteTitle}`} />
       <p>Hello there from profile!</p>
     </Layout>
-  )
-}
+  );
+};
 
 export const profilePageData = graphql`
   query profileAndBlogPostById($id: String!) {
@@ -62,6 +59,6 @@ export const profilePageData = graphql`
       }
     }
   }
-`
+`;
 
-export default ProfilePage
+export default ProfilePage;
