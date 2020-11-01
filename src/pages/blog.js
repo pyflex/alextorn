@@ -25,26 +25,7 @@ import ArticlePreview from 'ownComponents/article-preview.component.js';
 // nodejs library that concatenates classes
 import classnames from 'classnames';
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  Table,
-  Container,
-  Row,
-  Col,
-} from 'reactstrap';
+import { Button, Container, Row, Col } from 'reactstrap';
 
 // core components
 import ColorNavbar from 'components/Navbars/ColorNavbar.js';
@@ -54,6 +35,9 @@ class BlogPosts extends React.Component {
   constructor(props) {
     super(props);
     let windowScrollTop;
+    if (typeof window !== 'undefined') {
+      const module = typeof window !== `undefined` ? require('module') : null;
+    }
     if (window.innerWidth >= 768) {
       windowScrollTop = window.pageYOffset / 3;
     } else {
