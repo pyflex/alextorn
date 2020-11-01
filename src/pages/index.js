@@ -1,22 +1,20 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
-
-import Layout from '../components/components/layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import { Helmet } from 'react-helmet';
 
 const RootIndex = (props) => {
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
+  const siteTitle = get(props, 'data.site.siteMetadata.title');
   return (
-    <Layout>
-      <Helmet title={`Hem | ${siteTitle}`} />
-      <h1>This is Crispy Concept.</h1>
+    <>
+      <Helmet title={`Home | ${siteTitle}`} />
+      <h1>Presenting Alex.</h1>
       <p>{siteTitle}</p>
-    </Layout>
-  )
-}
+    </>
+  );
+};
 
-export default RootIndex
+export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
@@ -26,4 +24,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

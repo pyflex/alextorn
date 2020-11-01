@@ -69,4 +69,4 @@ public
 !.env.example
 
 # unnecessary
-src/assets/img
+src/assets/img*

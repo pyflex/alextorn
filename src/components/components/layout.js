@@ -1,27 +1,29 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Navigation from './navigation/navigation.component'
-import Footer from './footer/footer.component'
+import React from 'react';
 
-class Template extends React.Component {
+// core components
+import ColorNavbar from 'components/Navbars/ColorNavbar.js';
+import DemoFooter from 'components/Footers/DemoFooter.js';
+
+class BaseLayout extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
+    const { location, children } = this.props;
+    let header;
 
-    let rootPath = `/`
+    let rootPath = `/`;
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
+      rootPath = __PATH_PREFIX__ + `/`;
     }
 
     return (
       <>
-        <Navigation />
-        {children}
-        <Footer />
+        <ColorNavbar />
+        <div className="wrapper">
+          {children}
+          <DemoFooter />
+        </div>
       </>
-    )
+    );
   }
 }
 
-export default Template
+export default BaseLayout;
