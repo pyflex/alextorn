@@ -115,15 +115,17 @@ class LandingPage extends React.Component {
               </Row>
             </Container>
           </div>
-          <Container>
-            <Row className="justify-content-center">
-              <Col lg="12">
-                <Badge color="danger" pill className="mx-auto">
-                  Danger Zone: project still in development
-                </Badge>
-              </Col>
-            </Row>
-          </Container>
+          <div className="features-1">
+            <Container>
+              <Row>
+                <Col className="ml-auto mr-auto" md="8">
+                  <Badge pill color="danger">
+                    Danger Zone: project still in development
+                  </Badge>
+                </Col>
+              </Row>
+            </Container>
+          </div>
 
           <section className="section section-lg">
             <section className="section">
