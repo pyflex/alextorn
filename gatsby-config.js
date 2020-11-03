@@ -33,7 +33,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Crispy Concept',
+    title: 'Zero',
   },
   plugins: [
     {
@@ -49,6 +49,8 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         assets: path.join(__dirname, 'src/assets'),
         ownComponents: path.join(__dirname, 'src/components/components'),
+        data: path.join(__dirname, 'src/components/data'),
+        variables: path.join(__dirname, 'src/variables'),
       },
     },
     {

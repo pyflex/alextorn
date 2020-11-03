@@ -44,7 +44,7 @@ class BlogPostTemplate extends React.Component {
               className="page-header-image"
               data-parallax={true}
               style={{
-                backgroundImage: `url(${post.featureImage.file.url})`,
+                backgroundImage: `url(${post.featureImage.fluid.src})`,
               }}
             />
             <Container>
@@ -114,10 +114,10 @@ class BlogPostTemplate extends React.Component {
                               href="#pablo"
                               onClick={(e) => e.preventDefault()}
                             >
-                              <img
+                              <Img
                                 alt={post.author.authorImage.file.fileName}
                                 className="img img-raised"
-                                src={post.author.authorImage.file.url}
+                                fluid={post.author.authorImage.fluid}
                               />
                             </a>
                           </div>
@@ -210,7 +210,12 @@ export const pageData = graphql`
             fileName
             url
           }
+
+          fluid(quality: 100) {
+            ...GatsbyContentfulFluid_withWebp
+          }
         }
+
         description {
           description
         }
@@ -219,6 +224,10 @@ export const pageData = graphql`
         file {
           fileName
           url
+        }
+        fluid(quality: 100) {
+          src
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }

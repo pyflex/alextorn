@@ -30,7 +30,7 @@ const BlogPostImageWText = ({ imageFileUrl, imageFileName }) => {
                 <div className="carousel-item active">
                   <div className="info text-left bg-danger">
                     <div className="icon icon-white">
-                      <FaQuoteRight />
+                      <FaQuoteRight className="icons" />
                     </div>
                     <p className="description text-white">{state.text}</p>
                     <div className="author">

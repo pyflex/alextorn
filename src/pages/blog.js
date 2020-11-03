@@ -149,12 +149,18 @@ export const allBlogPostsPreview = graphql`
                 fileName
                 url
               }
+              fluid {
+                ...GatsbyContentfulFluid_withWebp
+              }
             }
           }
           featureImage {
             file {
               fileName
               url
+            }
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           slug

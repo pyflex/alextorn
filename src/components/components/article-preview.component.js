@@ -22,6 +22,7 @@ import classnames from 'classnames';
 // reactstrap components
 import { Button, Card, CardBody, CardFooter, CardTitle, Col } from 'reactstrap';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 const ArticlePreview = ({ article }) => {
   return (
@@ -29,10 +30,10 @@ const ArticlePreview = ({ article }) => {
       <Card className="card-blog card-plain">
         <div className="card-image">
           <Link to={article.slug}>
-            <img
+            <Img
               alt="..."
               className="img rounded"
-              src={article.featureImage.file.url}
+              fluid={article.featureImage.fluid}
             />
           </Link>
         </div>
@@ -44,10 +45,10 @@ const ArticlePreview = ({ article }) => {
           <p className="card-description">{article.description.description}</p>
           <CardFooter>
             <div className="author">
-              <img
+              <Img
                 alt={article.author.authorImage.file.fileName}
                 className="avatar img-raised"
-                src={article.author.authorImage.file.url}
+                fluid={article.author.authorImage.fluid}
               />
               <span className="ml-1">{article.author.name}</span>
             </div>

@@ -107,7 +107,7 @@ class DemoFooter extends React.Component {
                     id="tooltip750293512"
                     target="_blank"
                   >
-                    <FaDribbble />
+                    <FaDribbble className="i" />
                   </Button>
                   <UncontrolledTooltip delay={0} target="tooltip750293512">
                     Follow us
