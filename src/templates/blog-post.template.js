@@ -31,6 +31,7 @@ class BlogPostTemplate extends React.Component {
   state = {};
   render() {
     const post = get(this.props, 'data.contentfulBlogPost');
+    const images = get(this.props, 'data');
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     return (
       <>
@@ -103,10 +104,7 @@ class BlogPostTemplate extends React.Component {
                       <Card className="card-profile profile-bg">
                         <CardHeader
                           style={{
-                            backgroundImage:
-                              'url(' +
-                              require('assets/img/ruvim-noga.jpg') +
-                              ')',
+                            backgroundImage: `url(${images.authorBackgroundImage.childImageSharp.fluid.src})`,
                           }}
                         >
                           <div className="card-avatar">
@@ -117,6 +115,11 @@ class BlogPostTemplate extends React.Component {
                               <Img
                                 alt={post.author.authorImage.file.fileName}
                                 className="img img-raised"
+                                imgStyle={{ border: 'none' }}
+                                style={{
+                                  border: 'none',
+                                  borderRadius: '100px',
+                                }}
                                 fluid={post.author.authorImage.fluid}
                               />
                             </a>
@@ -188,6 +191,14 @@ export const pageData = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    authorBackgroundImage: file(relativePath: { eq: "chester-wade.jpg" }) {
+      childImageSharp {
+        fluid(quality: 90) {
+          srcSet
+          src
+        }
       }
     }
     contentfulBlogPost(slug: { eq: $slug }) {

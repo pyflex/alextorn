@@ -66,6 +66,7 @@ class BlogPosts extends React.Component {
 
   render() {
     const posts = get(this.props, 'data.allContentfulBlogPost.edges');
+    const images = get(this.props, 'data');
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     return (
       <>

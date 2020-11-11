@@ -97,7 +97,7 @@ class ContactUs extends React.Component {
                       <i className="tim-icons icon-email-85" />
                     </div>
                     <h4 className="info-title">Email</h4>
-                    <p className="description">{data.email}</p>
+                    <p className="description">{data.email || null}</p>
                   </div>
                 </Col>
                 <Col lg="3">
@@ -111,7 +111,7 @@ class ContactUs extends React.Component {
                       <i className="tim-icons icon-mobile" />
                     </div>
                     <h4 className="info-title">Phone Number</h4>
-                    <p className="description">{data.phoneNumber}</p>
+                    <p className="description">{data.phoneNumber || null}</p>
                   </div>
                 </Col>
                 <Col lg="3">
@@ -125,7 +125,7 @@ class ContactUs extends React.Component {
                       <i className="tim-icons icon-single-02" />
                     </div>
                     <h4 className="info-title">Contact</h4>
-                    <p className="description">{data.businessName}</p>
+                    <p className="description">{data.businessName || null}</p>
                   </div>
                 </Col>
               </Row>

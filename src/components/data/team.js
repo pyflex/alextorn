@@ -36,7 +36,7 @@ const Team = ({ imageAuthor }) => {
                   <Row>
                     <Col xl="7">
                       <div className="card-image no-mask">
-                        <Link href="#pablo" onClick={(e) => e.preventDefault()}>
+                        <Link to="#pablo" onClick={(e) => e.preventDefault()}>
                           <Img
                             alt="..."
                             className="img"
