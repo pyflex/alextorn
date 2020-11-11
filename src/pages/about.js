@@ -31,6 +31,9 @@ import {
   Col,
 } from 'reactstrap';
 
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+
 // core components
 import ColorNavbar from 'components/Navbars/ColorNavbar.js';
 import DemoFooter from 'components/Footers/DemoFooter.js';
@@ -52,6 +55,7 @@ class AboutUs extends React.Component {
   }
 
   render() {
+    const images = get(this.props, 'data');
     return (
       <>
         <ColorNavbar />
@@ -183,7 +187,7 @@ class AboutUs extends React.Component {
               <Row>
                 <Col className="ml-auto mr-auto" md="8">
                   <Badge color="warning">Insight</Badge>
-                  <h1 className="title">Accelerate and elevate your life.</h1>
+                  <h1 className="title">Become a professional developer.</h1>
                 </Col>
               </Row>
               <Row>
@@ -197,10 +201,10 @@ class AboutUs extends React.Component {
                       />
                       <i className="tim-icons icon-user-run" />
                     </div>
-                    <h4 className="info-title">Think.</h4>
+                    <h4 className="info-title">Type faster</h4>
                     <p className="description">
-                      Thinking is one of the most important assets you have
-                      through your entire life.
+                      One of the most useful skills you can have as a developer
+                      is being able to leverage your keyboard in the right way.
                     </p>
                   </div>
                 </Col>
@@ -303,24 +307,23 @@ class AboutUs extends React.Component {
                     <Col md="6">
                       <Card className="card-pricing">
                         <CardHeader className="bg-info">
-                          <Badge className="badge-default">Starter</Badge>
+                          <Badge className="badge-default">Free</Badge>
                           <CardTitle tag="h1">
-                            <small>$</small>
-                            22
+                            <small>$</small>0
                           </CardTitle>
                           <h5>per month</h5>
                         </CardHeader>
                         <CardBody>
                           <ul>
                             <li>
-                              <i className="tim-icons icon-check-2" /> 1000 MB
+                              <i className="tim-icons icon-check-2" /> 20 tests
                             </li>
                             <li>
-                              <i className="tim-icons icon-email-85" /> 3 email
+                              <i className="tim-icons icon-email-85" /> 3 emails
                             </li>
                             <li>
                               <i className="tim-icons icon-chart-bar-32" /> 5
-                              Databases
+                              sessions
                             </li>
                             <li>
                               <i className="tim-icons icon-alert-circle-exc" />{' '}
@@ -344,22 +347,23 @@ class AboutUs extends React.Component {
                           <Badge className="badge-default">Pro</Badge>
                           <CardTitle tag="h1">
                             <small>$</small>
-                            45
+                            10
                           </CardTitle>
                           <h5>per month</h5>
                         </CardHeader>
                         <CardBody>
                           <ul>
                             <li>
-                              <i className="tim-icons icon-check-2" /> 2000 MB
+                              <i className="tim-icons icon-check-2" /> Unlimited
+                              tests
                             </li>
                             <li>
-                              <i className="tim-icons icon-email-85" /> 100
-                              email
+                              <i className="tim-icons icon-email-85" />{' '}
+                              Unlimited emails
                             </li>
                             <li>
                               <i className="tim-icons icon-chart-bar-32" /> 10
-                              Databases
+                              sessions
                             </li>
                             <li>
                               <i className="tim-icons icon-alert-circle-exc" />{' '}
@@ -382,12 +386,29 @@ class AboutUs extends React.Component {
               </Row>
             </Container>
           </div>
-          <Team />
+          <Team imageAuthor={images.authorImage} />
           <DemoFooter />
         </div>
       </>
     );
   }
 }
+
+export const aboutQuery = graphql`
+  query aboutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    authorImage: file(relativePath: { eq: "mysterious-zero.jpg" }) {
+      childImageSharp {
+        fluid(quality: 90, maxHeight: 450, maxWidth: 450) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 export default AboutUs;

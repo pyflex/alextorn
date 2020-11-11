@@ -46,6 +46,7 @@ class ContactUs extends React.Component {
     const data = get(this.props, 'data.contentfulContactInfo');
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
 
+    console.log(this.props);
     return (
       <>
         <Helmet title={`Contact us | ${siteTitle}`} />
@@ -271,7 +272,7 @@ export const contactFormData = graphql`
         title
       }
     }
-    contentfulContactInfo(businessName: { eq: "Crispy Concept AB" }) {
+    contentfulContactInfo(businessName: { eq: "Unknown" }) {
       businessLocation {
         lat
         lon

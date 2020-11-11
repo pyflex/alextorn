@@ -20,6 +20,7 @@ import { graphql, Link } from 'gatsby';
 
 // react plugin used to create charts
 import { Line } from 'react-chartjs-2';
+import get from 'lodash/get';
 
 // reactstrap components
 import {
@@ -53,6 +54,10 @@ class LandingPage extends React.Component {
     document.body.classList.remove('landing-page');
   }
   render() {
+    const images = get(this.props, 'data');
+    console.log(images);
+
+    console.log();
     return (
       <>
         <ColorNavbar />
@@ -576,6 +581,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    fileName: file(relativePath: { eq: "assets/img/etherum.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }

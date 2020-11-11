@@ -33,6 +33,8 @@ const ArticlePreview = ({ article }) => {
             <Img
               alt="..."
               className="img rounded"
+              style={{ height: '100%' }}
+              imgStyle={{ objectFit: 'cover' }}
               fluid={article.featureImage.fluid}
             />
           </Link>

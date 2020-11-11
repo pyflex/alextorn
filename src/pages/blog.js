@@ -149,7 +149,7 @@ export const allBlogPostsPreview = graphql`
                 fileName
                 url
               }
-              fluid {
+              fluid(quality: 90, maxHeight: 30, maxWidth: 30) {
                 ...GatsbyContentfulFluid_withWebp
               }
             }
@@ -159,7 +159,7 @@ export const allBlogPostsPreview = graphql`
               fileName
               url
             }
-            fluid {
+            fluid(quality: 100) {
               ...GatsbyContentfulFluid_withWebp
             }
           }

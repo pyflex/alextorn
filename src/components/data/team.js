@@ -11,7 +11,10 @@ import {
   UncontrolledTooltip,
 } from 'reactstrap';
 
-const Team = (props) => {
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+
+const Team = ({ imageAuthor }) => {
   return (
     <>
       <div className="cd-section" id="teams">
@@ -33,13 +36,14 @@ const Team = (props) => {
                   <Row>
                     <Col xl="7">
                       <div className="card-image no-mask">
-                        <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                          <img
+                        <Link href="#pablo" onClick={(e) => e.preventDefault()}>
+                          <Img
                             alt="..."
                             className="img"
-                            src={require('assets/img/comete-coco.jpg')}
+                            style={{ maxHeight: '450px', maxWidth: '450px' }}
+                            fluid={imageAuthor.childImageSharp.fluid}
                           />
-                        </a>
+                        </Link>
                       </div>
                     </Col>
                     <Col xl="5">
