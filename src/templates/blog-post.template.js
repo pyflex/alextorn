@@ -238,7 +238,7 @@ export const pageData = graphql`
         }
         fluid(quality: 100) {
           src
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
