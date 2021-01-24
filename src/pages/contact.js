@@ -1,3 +1,9 @@
+const path = require('path');
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 import React from 'react';
 import get from 'lodash/get';
 import { graphql } from 'gatsby';
@@ -251,7 +257,7 @@ class ContactUs extends React.Component {
           </div>
           <ContactUsMap
             businessLocation={data.businessLocation}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwHthvV8mM596BtA4pp3qnkKdCLTUSD4s"
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}`}
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div className="map" />}
             mapElement={<div style={{ height: `100%` }} />}
