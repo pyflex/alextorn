@@ -401,10 +401,10 @@ export const aboutQuery = graphql`
         title
       }
     }
-    authorImage: file(relativePath: { eq: "mysterious-zero.jpg" }) {
-      childImageSharp {
-        fluid(quality: 90, maxHeight: 450, maxWidth: 450) {
-          ...GatsbyImageSharpFluid
+    authorImage: contentfulAuthor(name: { eq: "Zero" }) {
+      authorImage {
+        fluid {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }

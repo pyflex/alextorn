@@ -41,7 +41,7 @@ const Team = ({ imageAuthor }) => {
                             alt="..."
                             className="img"
                             style={{ maxHeight: '450px', maxWidth: '450px' }}
-                            fluid={imageAuthor.childImageSharp.fluid}
+                            fluid={imageAuthor.authorImage.fluid}
                           />
                         </Link>
                       </div>
